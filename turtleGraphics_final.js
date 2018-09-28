@@ -2,8 +2,8 @@ let args=process.argv.slice(2)
 
 class Turtle{
   constructor (x, y){
-		// current coordinates
-		this.coord=[x,y]
+    // current coordinates
+    this.coord=[x,y]
     
     // previous coordinates
     this.prevcoords = [[x,y]]
@@ -27,7 +27,7 @@ class Turtle{
   // takes an array of previous coordinates and compares them agains the point & checks to see if the point is in the coordinates 
  includesList(l){
    for (let i=0; i<this.prevcoords.length; i++) {
-  		if (this.prevcoords[i][0] === l[0] && this.prevcoords[i][1] === l[1]) {
+      if (this.prevcoords[i][0] === l[0] && this.prevcoords[i][1] === l[1]) {
        return true; 
       }
   } 
@@ -52,14 +52,14 @@ class Turtle{
         if (this.coord[1]<this.minY){
           this.minY=this.coord[1]
         } 
-      	return this
+        return this
     }
     
     right(){
       const x = this.direction[0]
       const y = this.direction[1]
 
-			if (x === 1 && y === 0){
+      if (x === 1 && y === 0){
         this.direction = [0,1]
       } else if (x === 0 && y === 1){
         this.direction = [-1,0]
@@ -71,7 +71,7 @@ class Turtle{
       return this
     }
    left(){
-			if (this.direction === [1,0]){
+      if (this.direction === [1,0]){
         this.direction = [0,-1]
       } else if (this.direction === [0,1]){
         this.direction = [1,0]
