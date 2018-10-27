@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  
+    <title>BlogOnRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <header>
+  <nav class="navbar navbar-expand navbar-light bg-light">
+
+  <a class="navbar-brand text-primary" href="/posts">Blog On Rails</a>
+ <div class="navbar-nav navbar-collapse ">
+  
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+     
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-primary" href="/posts">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-primary" href="/posts/new">New</a>
+    </li>
+ </ul>
+</div>
+</nav> 
+</header>
+  
+    <%= yield %>
+  </body>
+</html>
+
+

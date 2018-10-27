@@ -1,0 +1,63 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<title>SHOW POST </title>
+
+  <style>
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #000000;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 2px
+}
+</style>
+	</head>
+	<body>
+  <div class="m-4">
+	<h1><%= @post.title %></h1>
+	<p><%= @post.body %></p>
+  <p><%=time_ago_in_words(@post.created_at) %></p>
+<div class="row" p-4>
+  
+    <div>
+    <%= link_to "Edit", edit_post_path(@post),  class: "ml-3 btn btn-outline-primary btn-info text-center" %>
+    </div>
+    <div>
+    <%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure"}, class: "ml-2 btn btn-outline-primary btn-info text-center" %>
+    </div>
+ 
+</div>
+<div class="mt-4">
+  <h3>Comment</h3>
+</div>
+<%= form_for([@post, @comment]) do |form| %>
+ 
+<div class="form-group mt-3">
+	<%= form.text_area :body, class:"form-control", placeholder:"whats on your mind?"%>
+	</div>
+  <%= form.submit :'Submit', class: "btn btn-outline-primary"%>
+ 
+<% end %>
+
+
+<ul class="comment-list mt-4 p-0">
+    <% @comments.each do |comment| %>
+   
+     
+          <%= comment.body %> 
+          <p><%=time_ago_in_words(comment.created_at) %>
+      
+          <span class="dot"></span>
+      <%= link_to('Delete', post_comment_path(@post, comment),
+              method: :delete, data: { confirm: 'Are you sure?' })%>
+    </p>
+    <% end %>
+  </ul>
+
+  </div>
+	</body>
+</html>
